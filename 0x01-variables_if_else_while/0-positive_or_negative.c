@@ -1,20 +1,26 @@
+#include <stdlib.h>
+#include <time.h>
 #include <stdio.h>
+
 /**
- * main - this sdesribes the main function of the code
- * Return: 0
- */
+ * main - Prints a random number and states whether
+ *        it is positive, negative, or zero.
+ *
+ * Return: Always 0.
+*/
 int main(void)
 {
-char a;
-int b;
-long int c;
-long long int d;
-float e;
+	int n;
 
-printf("Size of a char: %lu byte(s)\n", (unsigned long)sizeof(a));
-printf("Size of an int: %lu byte(s)\n", (unsigned long)sizeof(b));
-printf("Size of a long int: %lu byte(s)\n", (unsigned long)sizeof(c));
-printf("Size of a long long int: %lu byte(s)\n", (unsigned long)sizeof(d));
-printf("Size of a float: %lu byte(s)\n", (unsigned long)sizeof(e));
-return (0);
+	srand(time(0));
+	n = rand() - RAND_MAX / 2;
+
+	if (n > 0)
+		printf("%d is positive\n", n);
+	else if (n < 0)
+		printf("%d is negative\n", n);
+	else
+		printf("%d is zero\n", n);
+
+	return (0);
 }
